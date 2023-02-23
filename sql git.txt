@@ -1,0 +1,105 @@
+create database basha
+use basha
+--============================================================ cteate table ================================================
+create table tbl_employee
+(
+emp_id int identity (1,1)primary key,
+emp_name varchar(50),
+emp_salary float,
+emp_address varchar(100),
+emp_status bit,
+emp_gender char(1),
+emp_mblenum bigint,
+emp_doj date
+)
+insert into tbl_employee
+values('basha',10000,'hyderabad',1,'f',6304007491,'2022-1-10')
+
+--====================================================================== insert row's ==========================================
+insert into tbl_employee([emp_name], [emp_salary], [emp_address], [emp_status], [emp_gender], [emp_mblenum], [emp_doj])
+values('raju',20000,'banglore',2,'m',6304007492,'2022-10-10'),
+      ('dil',30000,'mumbai',2,'m',9603535130,'2021-10-10')
+ 
+ -------================================================= select table ==================================
+select*from tbl_employee
+
+
+create database sum
+
+create table tbl_student
+(
+stu_id int identity (1,1)primary key,
+stu_name varchar(50),
+stu_rollnumber int,
+stu_section char(1),
+stu_class varchar(20),
+stu_mblenum bigint,
+stu_doj date
+)
+
+
+insert into tbl_student
+values (' RAJANNA REVATHI',51914010,'C','BTECH',7095539943,'2019-06-15'),('RAVI NELLACHALAM',316104027,'C','B TECH',7032446620,'2018-10-15'),
+('KITTU',186234123,'CIVIL','B TECH',9966876701,'2010-04-14')
+
+
+        
+   
+ create database mouni
+ use mouni
+    
+create table tbl_mouni
+(
+mouni_id int identity (1,1) primary key,
+mouni_name varchar(50),
+mouni_surname varchar(40),
+mouni_mobilenumber bigint,
+mouni_gender char(1),
+mouni_country varchar(50),
+mouni_address varchar(100),
+mouni_dob date,
+mouni_group varchar (10),
+mouni_mail varchar(40)
+)
+select*from tbl_mouni
+insert into tbl_mouni
+values('MOUNIKA','SENAPATHI',6304007491,'F','INDIA','VSKP','2010-01-01','ELECTRICAL','mouni@gmail.com'),('BHASKAR','KORASALA',9666401054,'M','JAPAN','TOKOYO','2015-10-10','CSE','basha@gmaol.com'),
+       ('NAGRAJU','PEDDIMESETTI',8886398944,'M','SINGPORE','SINGONE','2010-05-01','MECH','nag@gmail.com'), 
+	   ('DIL','SENAPATHI',6304007491,'M','CANADA','TORONTO','2010-10-01','MECHANICAL','dil@gmail.com')
+delete from tbl_mouni where mouni_id=2
+
+use mouni
+create table tbl_college
+(
+mouni_id int identity (1,1) primary key,
+mouni_fathername varchar(30),
+mouni_mothername varchar(30)
+)
+select*from tbl_college
+insert into tbl_college
+values('LAXMAN','MANI'),('NARAPPA','SITAMMA')
+delete from tbl_college where mouni_id=1
+update  tbl_college set mouni_fathername='BASHA'where mouni_id=2
+select count(*) from tbl_college
+
+create table tbl_desigination
+(
+ desigination_id int identity (1,1) primary key,
+desigination_name  varchar(30)
+)
+
+create table tbl_employee
+(
+emp_id int identity (1,1) primary key,
+emp_name varchar(20),
+desigination_id int foreign key references tbl_desigination(desigination_id),
+emp_salary float
+)
+select*from tbl_desigination
+select*from tbl_employee
+select*from tbl_employee  emp join tbl_desigina tion des on emp.desigination_id=des.desigination_id
+
+
+
+
+
